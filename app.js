@@ -22,3 +22,17 @@ function actualizarAmigos() {
         lista.appendChild(li);
     }
 }
+
+function sortearAmigo() {
+    if(amigos.length === 0){
+        alert('La lista no puede estar vacia, por favor agregue amigos.');
+    } else if (amigos.length === 1) {
+        alert('Debe tener al menos 2 amigos para sortear')
+    } else {
+        let random = Math.floor(Math.random() * amigos.length)
+        let resultado = document.getElementById('resultado');
+        resultado.innerHTML = `¡El amigo sorteado es: ${amigos[random]}!`;
+        amigos.splice(random, 1);
+        actualizarAmigos();
+    }
+}
